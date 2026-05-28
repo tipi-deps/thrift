@@ -44,6 +44,10 @@ if (NOT Boost_USE_STATIC_LIBS)
     add_definitions(-DBOOST_TEST_DYN_LINK)
 endif()
 
+if(Boost_with_cmake)
+    find_package(Boost REQUIRED)
+endif()
+
 # C++
 option(WITH_CPP "Build C++ Thrift library" ON)
 if(WITH_CPP)

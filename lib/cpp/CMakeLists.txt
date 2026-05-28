@@ -96,6 +96,10 @@ else()
     )
 endif()
 
+if (Boost_with_cmake)
+    list(APPEND SYSLIBS Boost::system Boost::filesystem Boost::numeric_conversion Boost::smart_ptr Boost::uuid Boost::algorithm  Boost::iterator )
+endif()
+
 # If OpenSSL is not found or disabled just ignore the OpenSSL stuff
 if(OPENSSL_FOUND AND WITH_OPENSSL)
     list(APPEND thriftcpp_SOURCES

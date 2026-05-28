@@ -70,6 +70,10 @@ set(thrift_c_glib_zlib_SOURCES
     src/thrift/c_glib/transport/thrift_zlib_transport_factory.c
 )
 
+if (Boost_with_cmake)
+    list(APPEND SYSLIBS Boost::system Boost::filesystem Boost::numeric_conversion Boost::smart_ptr Boost::uuid Boost::algorithm  Boost::iterator )
+endif()
+
 # If OpenSSL is not found just ignore the OpenSSL stuff
 if(OPENSSL_FOUND AND WITH_OPENSSL)
     list(APPEND thrift_c_glib_SOURCES
